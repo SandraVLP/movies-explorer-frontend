@@ -1,0 +1,40 @@
+.card-list {
+    background-color: #FAFAFA;
+
+}
+
+.card-list__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 89.07vw;
+    margin: 0 auto 0 auto;
+}
+
+.card-list__grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 30px 16px;
+}
+
+.card-list__more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-list__button {
+    margin-top: 50px;
+    margin-bottom: 80px;
+    width: 320px;
+    height: 36px;
+    padding: 0;
+    border-color: #E8E8E8;
+    font-weight: 500;
+font-size: 12px;
+line-height: 15px;
+background-color: #FAFAFA;
+border-style: solid;
+
+}

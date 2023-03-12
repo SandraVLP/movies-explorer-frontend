@@ -1,0 +1,89 @@
+.promo {
+padding-top: 110px;
+padding-bottom: 100px;
+max-width: 89.07vw;
+margin: 0 auto 0 auto;
+}
+
+.promo__title{
+
+font-weight: 400;
+font-size: 22px;
+line-height: 27px;
+/* identical to box height */
+
+letter-spacing: -0.04em;
+text-align: left;
+margin-bottom: 23px;
+}
+
+.promo__text {
+    border-top: 1px solid rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 70px;
+    margin-bottom: 110px;
+}
+
+.promo__about_title {
+    font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+letter-spacing: -0.04em;
+text-align: left;
+}
+
+.promo__about_text {
+    margin-top: 26px;
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+text-align: left;
+}
+
+.promo__about:nth-child(1) {
+    margin-right: 40px;
+}
+
+.promo__period {
+    display: grid;
+    grid-template-columns: 228px auto;
+    grid-template-rows: 36px 36px;
+  
+}
+
+.promo__period_date {
+    font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+background: #F2F2F2;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.promo__period_date:nth-child(1) {
+    color: white;
+    background-color: #3456F3;
+    
+}
+
+.promo__period_text {
+    font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+/* identical to box height, or 121% */
+
+text-align: center;
+
+color: #A0A0A0;
+display: flex;
+align-items: center;
+justify-content: center;
+}
