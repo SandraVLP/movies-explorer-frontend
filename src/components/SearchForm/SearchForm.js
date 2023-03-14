@@ -13,12 +13,14 @@ function SearchForm() {
         </fieldset>
       </form>
       <div className="search__shorts">
-      <label htmlFor="toggle-button" className="search__text">
+        <label htmlFor="toggle-button" className="search__text">
           Короткометражки
         </label>
-        <input type="checkbox" id="toggle-button" className="search__toggle-button">
-        </input>
-
+        <input
+          type="checkbox"
+          id="toggle-button"
+          className="search__toggle-button"
+        ></input>
       </div>
     </div>
   );

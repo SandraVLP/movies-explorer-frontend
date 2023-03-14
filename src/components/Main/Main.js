@@ -4,16 +4,14 @@ import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 
 function Main() {
+  return (
+    <>
+      <FirstSlide />
+      <Promo />
+      <Techs />
+      <AboutMe />
+    </>
+  );
+}
 
-    return (
-        <>
-       <FirstSlide />
-       <Promo />
-       <Techs />
-       <AboutMe />
-       </>
-
-    );
-  }
-  
-  export default Main;
+export default Main;

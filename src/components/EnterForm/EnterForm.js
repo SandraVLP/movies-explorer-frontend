@@ -1,24 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 class EnterForm extends React.Component {
-
-
-  
-    render() {
-        const { children } = this.props;
-      return (
-        <>
-          <div className="enter">
-            <form className="enter__form">
-                {children}
-                {/* <InputForm htmlFor={'name'}               
+  render() {
+    const { children } = this.props;
+    return (
+      <>
+        <div className="enter">
+          <form className="enter__form">
+            {children}
+            {/* <InputForm htmlFor={'name'}               
                 placeholder={"Имя"}
                 id={"name"}
                 name={"name"}
                 type={"name" }/> */}
-             {/* <div className="enter__block">  
+            {/* <div className="enter__block">  
             <label className="enter__label" htmlFor="name">Имя:</label>
               <input
                 className="enter__input"
@@ -30,12 +26,12 @@ class EnterForm extends React.Component {
                 // onChange={this.handleChange}
               />
               </div> */}
-              {/* <InputForm htmlFor={'email'}               
+            {/* <InputForm htmlFor={'email'}               
                 placeholder={"Email"}
                 id={"email"}
                 name={"email"}
                 type={"email" }/> */}
-             {/* <div className="enter__block">  
+            {/* <div className="enter__block">  
               <label className="enter__label" htmlFor="email">Email:</label>
               <input
                 className="enter__input"
@@ -47,12 +43,12 @@ class EnterForm extends React.Component {
                 // onChange={this.handleChange}
               />
                 </div> */}
-                              {/* <InputForm htmlFor={'password'}               
+            {/* <InputForm htmlFor={'password'}               
                 placeholder={"Пароль"}
                 id={"password"}
                 name={"password"}
                 type={"password" }/> */}
-             {/* <div className="enter__block">  
+            {/* <div className="enter__block">  
               <label className="enter__label" htmlFor="password">Пароль:</label>
               <input
                 className="enter__input"
@@ -64,26 +60,24 @@ class EnterForm extends React.Component {
                 // onChange={this.handleChange}
               />
                 </div> */}
-                <button
-                  type="submit"
-                //   onSubmit={this.handleSubmit}
-                  className="enter__button"
-                >
-                  {this.props.buttonText}
-                </button>
-            </form>
-            <div className="enter__link-container">
-              <p className="enter__link-title">{this.props.linkTitle}</p>
-              <Link to={this.props.link} className="enter__link">
-                {this.props.linkText}
-              </Link>
-            </div>
+            <button
+              type="submit"
+              //   onSubmit={this.handleSubmit}
+              className="enter__button"
+            >
+              {this.props.buttonText}
+            </button>
+          </form>
+          <div className="enter__link-container">
+            <p className="enter__link-title">{this.props.linkTitle}</p>
+            <Link to={this.props.link} className="enter__link">
+              {this.props.linkText}
+            </Link>
           </div>
-
-        </>
-      );
-    }
+        </div>
+      </>
+    );
   }
-  
-  export default EnterForm;
-  
+}
+
+export default EnterForm;

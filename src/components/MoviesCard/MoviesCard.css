@@ -9,6 +9,8 @@
 
 .card__save {
     position: absolute;
+    opacity: 0;
+    transition: opacity .3s;
     right: 14px;
     top: 14px;
     background-color: #F4F4F4;
@@ -26,6 +28,7 @@ height: 39px;
 
 .card__save_active {
     position: absolute;
+
     right: 14px;
     top: 14px;
     width: 21px;
@@ -42,6 +45,7 @@ height: 39px;
 
 .card__remove {
     position: absolute;
+    opacity: 0;
     right: 14px;
     top: 14px;
     width: 21px;
@@ -54,6 +58,16 @@ height: 39px;
     background-color: #F4F4F4;
     border-radius: 30px;
     background-position: center;
+}
+
+.card:hover .card__remove {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card:hover .card__save {
+    opacity: 1;
+    transition: opacity .3s;
 }
 
 .card__description {
@@ -75,4 +89,16 @@ line-height: 16px;
     font-weight: 400;
 font-size: 11px;
 line-height: 10px;
+}
+
+@media screen and (max-width: 350px) {
+    .card__save {
+        font-size: 10px;
+line-height: 9px;
+    }
+
+    .card__name {
+        font-size: 12px;
+line-height: 15px;
+    }
 }

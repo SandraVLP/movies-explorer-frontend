@@ -4,7 +4,6 @@ import film1 from "../../images/film1.png";
 import film2 from "../../images/film2.png";
 import film3 from "../../images/film3.png";
 
-
 function SavedMovies(props) {
   const cardsList = [
     {

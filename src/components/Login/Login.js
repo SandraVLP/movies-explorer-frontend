@@ -4,7 +4,12 @@ import FormInput from "../FormInput/FormInput";
 function Login() {
   return (
     <div className="register">
-      <EnterForm buttonText={"Войти"} link={"/signup"} linkText={"Регистрация"} linkTitle={"Ещё не зарегистрированы?"} >
+      <EnterForm
+        buttonText={"Войти"}
+        link={"/signup"}
+        linkText={"Регистрация"}
+        linkTitle={"Ещё не зарегистрированы?"}
+      >
         <FormInput
           htmlFor={"email"}
           inputTitle={"Email:"}
