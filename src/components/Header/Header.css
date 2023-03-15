@@ -87,6 +87,20 @@
 @media screen and (max-width: 320px) {
   .header {
     width: 91.25vw;
+    z-index: auto;
+  }
+
+  .header__container_enter {
+    width: 81.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .header__title {
+    margin-top: 50px;
+    margin-bottom: 40px;
   }
 
   .header__button {

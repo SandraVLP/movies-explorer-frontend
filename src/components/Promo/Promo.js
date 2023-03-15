@@ -23,10 +23,10 @@ function Promo(props) {
         </div>
       </div>
       <div className="promo__period">
-        <p className="promo__period_date">1 неделя</p>
-        <p className="promo__period_date">4 недели</p>
-        <p className="promo__period_text">Back-end</p>
-        <p className="promo__period_text">Front-end</p>
+        <p className="promo__period-date">1 неделя</p>
+        <p className="promo__period-date">4 недели</p>
+        <p className="promo__period-text">Back-end</p>
+        <p className="promo__period-text">Front-end</p>
       </div>
     </div>
   );

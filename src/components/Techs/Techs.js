@@ -5,8 +5,8 @@ function Techs(props) {
         <h2 className="techs__title">Технологии</h2>
 
         <div className="techs__about">
-          <h2 className="techs__about_title">7 технологий</h2>
-          <p className="techs__about_text">
+          <h2 className="techs__about-title">7 технологий</h2>
+          <p className="techs__about-text">
             На курсе веб-разработки мы освоили технологии, которые применили в
             дипломном проекте.
           </p>

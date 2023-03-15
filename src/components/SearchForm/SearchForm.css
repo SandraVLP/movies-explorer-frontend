@@ -10,6 +10,7 @@
   justify-content: space-between;
   max-width: 932px;
   flex: 2;
+  margin-right: 41px;
 }
 
 .search__name {
@@ -111,6 +112,7 @@
   }
   .search__form {
     width: 100%;
+    margin-right: 0;
   }
 
   .search__shorts {

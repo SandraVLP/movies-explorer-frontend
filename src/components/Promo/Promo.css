@@ -52,7 +52,7 @@
   grid-template-rows: 36px 36px;
 }
 
-.promo__period_date {
+.promo__period-date {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -64,12 +64,12 @@
   justify-content: center;
 }
 
-.promo__period_date:nth-child(1) {
+.promo__period-date:nth-child(1) {
   color: white;
   background-color: #3456f3;
 }
 
-.promo__period_text {
+.promo__period-text {
   font-style: normal;
   font-weight: 500;
   font-size: 14px;

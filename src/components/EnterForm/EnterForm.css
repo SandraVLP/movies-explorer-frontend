@@ -84,7 +84,18 @@
     padding-top: 0;
   }
 
-  .header__container_enter {
-    width: 51.56vw;
+}
+
+
+@media screen and (max-width: 320px) {
+  .enter {
+    width: 81.25vw;
   }
+
+  .enter__link-container {
+    font-size: 12px;
+line-height: 15px;
+    width: 100%;
+  }
+
 }

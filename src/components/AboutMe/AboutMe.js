@@ -26,24 +26,36 @@ function AboutMe(props) {
         <h3 className="about__portfolio-title">Портфолио </h3>
         <ul className="about__portfolio">
           <li className="about__portfolio-link">
-            <a className="about__link" src="#" alt="Статичный сайт">
+            <a target="_blank" 
+              className="about__link"
+              href="https://sandravlp.github.io/russian-travel/"
+              alt="Статичный сайт"
+            >
               Статичный сайт
+              <img className="about__img" src={arrow} alt="ссылка"></img>
             </a>
-            <img className="about__img" src={arrow} alt="ссылка"></img>
           </li>
           <li className="about__portfolio-link">
             {" "}
-            <a className="about__link" src="#" alt="Статичный сайт">
+            <a target="_blank" 
+              className="about__link"
+              href="https://sandravlp.github.io/mesto/"
+              alt="Адаптивный сайт"
+            >
               Адаптивный сайт
+              <img className="about__img" src={arrow} alt="ссылка"></img>
             </a>
-            <img className="about__img" src={arrow} alt="ссылка"></img>
           </li>
           <li className="about__portfolio-link">
             {" "}
-            <a className="about__link" src="#" alt="Статичный сайт">
+            <a target="_blank" 
+              className="about__link"
+              href="http://aleksanvp.nomoredomains.work/ "
+              alt="Одностраничное приложение"
+            >
               Одностраничное приложение
+              <img className="about__img" src={arrow} alt="ссылка"></img>
             </a>
-            <img className="about__img" src={arrow} alt="ссылка"></img>
           </li>
         </ul>
       </div>
