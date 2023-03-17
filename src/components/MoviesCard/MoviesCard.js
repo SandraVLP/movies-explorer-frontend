@@ -12,7 +12,7 @@ function MoviesCard(props) {
             {props.showAddButton ? 
             (isSaved 
             ? <button className="card__save" type="button" onClick={() => setisSaved(false)} >Сохранить</button>
-            : <button className="card__save_active" type="button" onClick={() => setisSaved(true)}></button>)
+            : <button className="card__save-active" type="button" onClick={() => setisSaved(true)}></button>)
 
             : <button className="card__remove" type="button"></button> }
             <div className="card__description">

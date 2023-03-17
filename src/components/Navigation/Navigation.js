@@ -16,7 +16,7 @@ function Navigation() {
         </Link>
       </div>
       <div className="navigation__profile">
-        <Link to="/profile" className="navigation__link_profile">
+        <Link to="/profile" className="navigation__profile-link">
           {" "}
           Аккаунт{" "}
           <img

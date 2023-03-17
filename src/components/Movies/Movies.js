@@ -92,7 +92,7 @@ function Movies(props) {
   return (
     <>
       <SearchForm />
-      <MoviesCardList cardList={cardsList} showAddButton={true} />
+      <MoviesCardList cardList={cardsList} showAddButton={true} grey={true} />
     </>
   );
 }

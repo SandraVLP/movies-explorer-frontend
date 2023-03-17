@@ -40,6 +40,10 @@
   text-align: center;
 }
 
+.search__find:hover {
+  opacity: 0.8;
+} 
+
 .search__input {
   border: none;
   opacity: 0.2;

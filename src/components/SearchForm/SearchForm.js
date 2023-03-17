@@ -8,6 +8,7 @@ function SearchForm() {
             type="search"
             id="name"
             placeholder="Фильм"
+            required
           ></input>
           <button className="search__find">Найти</button>
         </fieldset>

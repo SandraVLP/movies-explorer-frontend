@@ -29,7 +29,7 @@ function Header(props) {
           element={
             <div className="header__container">
               <img className="header__logo" src={logo} alt="Логотип" />
-              <div className="header__navigation_main">
+              <div className="header__navigation-main">
                 <Link to="/signup" className="header__link">
                   {" "}
                   Регистрация
@@ -48,7 +48,7 @@ function Header(props) {
         <Route
           path="/signup"
           element={
-            <div className="header__container_enter">
+            <div className="header__container-enter">
                <Link to="/"><img className="header__logo" src={logo1} alt="Логотип" /> </Link>
               <h1 className="header__title">Добро пожаловать!</h1>
             </div>
@@ -57,7 +57,7 @@ function Header(props) {
         <Route
           path="/signin"
           element={
-            <div className="header__container_enter">
+            <div className="header__container-enter">
               <Link to="/"><img className="header__logo" src={logo1} alt="Логотип" /> </Link>
               <h1 className="header__title">Рады видеть!</h1>
             </div>

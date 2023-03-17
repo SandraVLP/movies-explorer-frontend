@@ -26,7 +26,7 @@ width: 100px;
 height: 39px;
 }
 
-.card__save_active {
+.card__save-active {
     position: absolute;
 
     right: 14px;
@@ -58,6 +58,16 @@ height: 39px;
     background-color: #F4F4F4;
     border-radius: 30px;
     background-position: center;
+}
+
+.card__remove:hover {
+    opacity: 0.8;
+}
+.card__save-active:hover {
+    opacity: 0.8;
+}
+.card__save:hover {
+    opacity: 0.8;
 }
 
 .card:hover .card__remove {

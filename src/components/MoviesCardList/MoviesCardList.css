@@ -3,6 +3,10 @@
 
 }
 
+.card-list_grey {
+    background-color: #E5E5E5;
+}
+
 .card-list__container {
     border-top: 1px solid #E8E8E8;
     padding-top: 70px;
@@ -40,6 +44,10 @@ background-color: #FAFAFA;
 border-style: solid;
 border-radius: 6px;
 
+}
+
+.card-list__button:hover {
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 768px) {

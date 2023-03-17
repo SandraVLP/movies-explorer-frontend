@@ -11,7 +11,7 @@ function FirstSlide(props) {
         </h1>
         <img className="slide__spiral" src={spiral} alt="Спираль"></img>
         <img
-          className="slide__spiral_small"
+          className="slide__spiral-small"
           src={spiralSmall}
           alt="Спираль"
         ></img>
