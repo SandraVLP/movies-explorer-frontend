@@ -1,0 +1,117 @@
+.enter {
+  width: 30.93vw;
+  margin: 40px auto 0 auto;
+  padding-top: 40px;
+}
+
+.enter__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.enter__block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.enter__label {
+  color: #a0a0a0;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  align-self: flex-start;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.enter__input {
+  background-color: #f4f4f4;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  padding: 15px;
+}
+
+.enter__button {
+  margin-top: 69px;
+  color: white;
+  background-color: #3456f3;
+  border: none;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  width: 100%;
+  padding-top: 13px;
+  padding-bottom: 15px;
+}
+
+.enter__button:hover {
+  opacity: 0.8;
+}
+
+.enter__span {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+}
+
+.enter__link-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.enter__link-title {
+  color: #a0a0a0;
+  margin-right: 6px;
+}
+
+.enter__link {
+  color: #3456f3;
+  text-decoration: none;
+}
+
+.enter__block:nth-child(2) + .enter__button {
+  margin-top: 179px;
+}
+
+@media screen and (max-width: 950px) {
+  .enter {
+    width: 51.56vw;
+    padding-top: 0;
+  }
+
+
+}
+
+@media screen and (max-width: 550px) {
+  .enter {
+    width: 81.25vw;
+  }
+
+  .enter__link-container {
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 15px;
+    width: 100%;
+  }
+
+  .enter__button {
+    margin-top: 157px;
+  }
+
+  .enter__block:nth-child(2) + .enter__button {
+    margin-top: 267px;
+  }
+}

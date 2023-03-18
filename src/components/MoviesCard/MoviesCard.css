@@ -1,0 +1,114 @@
+.card { 
+   position: relative;
+
+}
+.card__image {
+    display: block;
+    width: 100%;
+}
+
+.card__save {
+    position: absolute;
+    opacity: 0;
+    transition: opacity .3s;
+    right: 14px;
+    top: 14px;
+    background-color: #F4F4F4;
+    max-width: 72px;
+    max-height: 21px;
+    border-radius: 30px;
+    font-weight: 400;
+font-size: 10px;
+line-height: 9px;
+padding: 0;
+border: none;
+width: 100px;
+height: 39px;
+}
+
+.card__save-active {
+    position: absolute;
+
+    right: 14px;
+    top: 14px;
+    width: 21px;
+    height: 21px;
+    background-image: url("../../images/save3.svg");
+    background-size: 8px;
+    background-repeat: no-repeat;
+    padding: 0;
+    border: none;
+    background-color: #EE3465;
+    border-radius: 30px;
+    background-position: center;
+}
+
+.card__remove {
+    position: absolute;
+    opacity: 0;
+    right: 14px;
+    top: 14px;
+    width: 21px;
+    height: 21px;
+    background-image: url("../../images/cross.svg");
+    background-size: 8px;
+    background-repeat: no-repeat;
+    padding: 0;
+    border: none;
+    background-color: #F4F4F4;
+    border-radius: 30px;
+    background-position: center;
+}
+
+.card__remove:hover {
+    opacity: 0.8;
+}
+.card__save-active:hover {
+    opacity: 0.8;
+}
+.card__save:hover {
+    opacity: 0.8;
+}
+
+.card:hover .card__remove {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card:hover .card__save {
+    opacity: 1;
+    transition: opacity .3s;
+}
+
+.card__description {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 14px 0 14px;
+}
+
+.card__name {
+    font-weight: 500;
+font-size: 13px;
+line-height: 16px;
+}
+
+.card__duration {
+    padding: 3px 4px 3px 4px;
+    background-color: #F4F4F4;
+    color: #A0A0A0;
+    font-weight: 400;
+font-size: 11px;
+line-height: 10px;
+}
+
+@media screen and (max-width: 350px) {
+    .card__save {
+        font-size: 10px;
+line-height: 9px;
+    }
+
+    .card__name {
+        font-size: 12px;
+line-height: 15px;
+    }
+}

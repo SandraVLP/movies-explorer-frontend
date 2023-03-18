@@ -1,0 +1,138 @@
+.promo {
+  padding-top: 110px;
+  padding-bottom: 100px;
+  max-width: 89.07vw;
+  margin: 0 auto 0 auto;
+}
+
+.promo__title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  /* identical to box height */
+
+  letter-spacing: -0.04em;
+  text-align: left;
+  margin-bottom: 23px;
+}
+
+.promo__text {
+  border-top: 1px solid rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  padding-top: 70px;
+  margin-bottom: 110px;
+}
+
+.promo__about-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  text-align: left;
+}
+
+.promo__about-text {
+  margin-top: 26px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: left;
+}
+
+.promo__about:nth-child(1) {
+  margin-right: 40px;
+}
+
+.promo__period {
+  display: grid;
+  grid-template-columns: 228px auto;
+  grid-template-rows: 36px 36px;
+}
+
+.promo__period-date {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo__period-date:nth-child(1) {
+  color: white;
+  background-color: #3456f3;
+}
+
+.promo__period-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height, or 121% */
+
+  text-align: center;
+
+  color: #a0a0a0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .promo {
+    width: 86.98vw;
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .promo__period {
+    grid-template-columns: 140px auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo {
+    width: 88.75vw;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .promo__title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .promo__text {
+    border-top: 1px solid rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    padding-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  .promo__about-title {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .promo__about:nth-child(1) {
+    margin-right: 0;
+    margin-bottom: 56px;
+  }
+
+  .promo__about-text {
+    margin-top: 16px;
+
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .promo__period {
+    grid-template-columns: 100px auto;
+    grid-template-rows: 35px 35px;
+  }
+}
