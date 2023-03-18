@@ -1,0 +1,144 @@
+.search {
+  width: 89.07vw;
+  margin: 80px auto 83px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search__form {
+  display: flex;
+  justify-content: space-between;
+  max-width: 932px;
+  flex: 2;
+  margin-right: 41px;
+}
+
+.search__name {
+  border: 1.5px solid rgba(170, 170, 170, 0.2);
+  border-radius: 50px;
+  color: #aaaaaa;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 7px;
+}
+
+.search__find {
+  color: white;
+  background-color: #3456f3;
+  border-radius: 48px;
+  border: none;
+  width: 58.65px;
+  height: 34px;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 18px;
+  /* identical to box height, or 164% */
+
+  text-align: center;
+}
+
+.search__find:hover {
+  opacity: 0.8;
+} 
+
+.search__input {
+  border: none;
+  opacity: 0.2;
+}
+
+.search__shorts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__text {
+  margin-right: 14px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.search__toggle-button {
+  position: relative;
+  display: inline-block;
+  width: 34px;
+  height: 14px;
+  margin: 0;
+  vertical-align: top;
+  background: #2be080;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.search__toggle-button::after {
+  content: "";
+
+  display: inline-block;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+
+  transform: translateX(0);
+  transition: 0.3s;
+}
+
+.search__toggle-button:checked::after {
+  right: calc(40% - 2px);
+  transform: translateX(-100%);
+  background-color: #f5f5f5;
+}
+.search__toggle-button:checked {
+  background-color: #ebebeb;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    width: 92.19vw;
+    margin: 60px auto 57px auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .search__form {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .search__shorts {
+    margin-top: 38px;
+  }
+
+  .search__text {
+    margin-right: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search {
+    width: 93.75vw;
+    margin-bottom: 44px;
+  }
+
+  .search__shorts {
+    margin-top: 45px;
+  }
+
+  .search__text {
+    margin-right: 13px;
+  }
+}

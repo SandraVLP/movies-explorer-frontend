@@ -1,0 +1,139 @@
+.header {
+  width: 89.07vw;
+  margin: 0 auto 0 auto;
+  z-index: 1;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+}
+
+.header__container-enter {
+  margin: 70px auto 0 auto;
+  width: 30.93vw;
+}
+
+.header__title {
+  margin-top: 40px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: left;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+  left: 70px;
+  top: 18px;
+}
+
+.header__link {
+  color: black;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-decoration: none;
+  text-align: right;
+  margin-right: 30px;
+}
+
+.header__button {
+  background-color: #3456f3;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  width: 76px;
+  height: 32px;
+}
+
+.header__button:hover {
+  opacity: 0.8;
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.header__open-nav {
+  display: none;
+}
+
+
+@media screen and (max-width: 950px) {
+  .header__container-enter {
+    width: 51.56vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    width: 92.19vw;
+  }
+
+  .header__open-nav {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    background-image: url("../../images/more-button.svg");
+    border: none;
+    background-color: white;
+  }
+
+  .header__navigation {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header__container-enter {
+    width: 81.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .header__title {
+    margin-top: 50px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    width: 91.25vw;
+    z-index: auto;
+  }
+
+  .header__button {
+    width: 54px;
+    height: 26px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .header__open-nav {
+    display: inline-block;
+    width: 40px;
+    height: 43px;
+    background-image: url("../../images/more-button.svg");
+    border: none;
+    background-color: white;
+  }
+
+  .header__navigation {
+    display: none;
+  }
+}
