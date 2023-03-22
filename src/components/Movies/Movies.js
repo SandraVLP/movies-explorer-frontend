@@ -1,98 +1,179 @@
+import React, { useState } from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import film1 from "../../images/film1.png";
-import film2 from "../../images/film2.png";
-import film3 from "../../images/film3.png";
-import film4 from "../../images/film4.png";
-import film5 from "../../images/film5.png";
-import film6 from "../../images/film6.png";
-import film7 from "../../images/film7.png";
-import film8 from "../../images/film8.png";
-import film9 from "../../images/film9.png";
-import film10 from "../../images/film10.png";
-import film11 from "../../images/film11.png";
-import film12 from "../../images/film12.png";
+import Preloader from "../Preloader/Preloader";
+import moviesApi from "../../utils/MoviesApi";
+import api from "../../utils/MainApi";
 
 function Movies(props) {
-  const cardsList = [
-    {
-      src: film1,
-      cardName: "33 слова о дизайне",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film2,
-      cardName: "Киноальманах «100 лет дизайна»",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film3,
-      cardName: "В погоне за Бенкси",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film4,
-      cardName: "Баския: Взрыв реальности",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film5,
-      cardName: "Бег это свобода",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film6,
-      cardName: "Книготорговцы",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film7,
-      cardName: "Когда я думаю о Германии ночью",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film8,
-      cardName: "Gimme Danger: История Игги и The Stooges",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film9,
-      cardName: "Дженис: Маленькая девочка грустит",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film10,
-      cardName: "Соберись перед прыжком",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film11,
-      cardName: "Пи Джей Харви: A dog called money",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-    {
-      src: film12,
-      cardName: "По волнам: Искусство звука в кино",
-      cardDuration: "1ч 17м",
-      isSaved: false,
-    },
-  ];
+  const [moviesObj, setMoviesObj] = useState(
+    JSON.parse(localStorage.getItem("moviesObj")) || {}
+  );
+  const [searchStr, setSearchStr] = useState(
+    localStorage.getItem("searchStr") || ""
+  );
+  const [isSearching, setIsSearching] = useState(false);
+  const [error, setError] = useState(false);
+  const [onlyShorts, setOnlyShorts] = useState(
+    localStorage.getItem("onlyShorts") === "true"
+  );
+  const [savedMovies, setSavedMovies] = useState([]);
+  const [pageLength, setPageLength] = useState(0);
+  const [firstPageLenght, setFirstPageLenght] = useState(0);
+  const [currentPageNumber, setCurrentPageNumber] = useState(0);
+ 
+
+  function handleSearchSubmit(e) {
+    e.preventDefault();
+    setError(false);
+    setMoviesObj({});
+    setIsSearching(true);
+    moviesApi
+      .getMovies()
+      .then((data) => {
+        setIsSearching(false);
+        const searchStrLowerCase = searchStr.toLowerCase();
+        const filteredMovies = data.filter((item) => {
+          return (
+            item.nameRU.toLowerCase().includes(searchStrLowerCase) ||
+            item.nameEN.toLowerCase().includes(searchStrLowerCase) ||
+            item.director.toLowerCase().includes(searchStrLowerCase) ||
+            item.year.toLowerCase().includes(searchStrLowerCase) ||
+            item.country.toLowerCase().includes(searchStrLowerCase) ||
+            item.description.toLowerCase().includes(searchStrLowerCase)
+          );
+        });
+        const newMoviesObject = {};
+        filteredMovies.forEach((element) => {
+          newMoviesObject[element.id] = element;
+        });
+
+        console.log("filteredMovies", filteredMovies);
+        api
+          .getSavedMovies()
+          .then((data) => {
+              console.log('data', data)
+              data.data.forEach((element) => {
+                const movie = newMoviesObject[element.movieId];
+                if (movie) {
+                  newMoviesObject[element.movieId].isSaved = true;
+                }
+              });
+            setSavedMovies(data);
+            setMoviesObj(newMoviesObject);
+            localStorage.setItem("moviesObj", JSON.stringify(newMoviesObject));
+            localStorage.setItem("searchStr", searchStr);
+          })
+          .catch((err) => {
+            console.log(`Ошибка; ${err}`);
+          });
+      })
+      .catch((err) => {
+        setError(true);
+        setIsSearching(false);
+        console.log(`Ошибка; ${err}`);
+      });
+  }
+
+  const moviesList = Object.values(moviesObj);
+
+  const moviesToDisplay = onlyShorts
+    ? moviesList.filter((item) => {
+        return item.duration < 40;
+      })
+    : moviesList;
+
+  function handleSave(data) {
+    api
+      .addMovie(data)
+      .then((movieData) => {
+        const newMoviesObj = { ...moviesObj };
+        newMoviesObj[movieData.data.movieId].isSaved = true;
+        newMoviesObj[movieData.data.movieId]._id = movieData.data._id;
+        setMoviesObj(newMoviesObj);
+        localStorage.setItem("moviesObj", JSON.stringify(newMoviesObj));
+      })
+      .catch((err) => {
+        console.log(`Ошибка; ${err}`);
+      });
+  }
+
+  function handleDelete(data) {
+    api
+      .deleteMovie(data._id)
+      .then(() => {
+        const newMoviesObj = { ...moviesObj };
+        console.log("data", data);
+        newMoviesObj[data.id].isSaved = false;
+        newMoviesObj[data.id]._id = null;
+        setMoviesObj(newMoviesObj);
+        localStorage.setItem("moviesObj", JSON.stringify(newMoviesObj));
+      })
+      .catch((err) => {
+        console.log(`Ошибка; ${err}`);
+      });
+  }
+
+  React.useLayoutEffect(() => {
+    function updateSize() {
+      if (window.innerWidth <= 480) {
+        setPageLength(2)
+        setFirstPageLenght(5)
+      }
+      else if (window.innerWidth <= 899) {
+        setPageLength(2)
+        setFirstPageLenght(8)
+      }
+      else {
+        setPageLength(3)
+        setFirstPageLenght(12)
+      }
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+
+  function handleMoreClick() {
+    setCurrentPageNumber(currentPageNumber + 1)
+  }
+
+const displayCardLength = firstPageLenght +currentPageNumber * pageLength;
 
   return (
     <>
-      <SearchForm />
-      <MoviesCardList cardList={cardsList} showAddButton={true} grey={true} />
+      <SearchForm
+        onSubmit={handleSearchSubmit}
+        searchValue={searchStr}
+        onChangeSearch={(e) => setSearchStr(e.target.value)}
+        shortsValue={onlyShorts}
+        onChangeShorts={(e) => {
+          setOnlyShorts(e.target.checked);
+          localStorage.setItem("onlyShorts", e.target.checked);
+        }}
+      />
+      {isSearching && <Preloader />}
+      {error && (
+        <div>
+          Во время запроса произошла ошибка. Возможно, проблема с соединением
+          или сервер недоступен. Подождите немного и попробуйте ещё раз
+        </div>
+      )}
+
+      {moviesToDisplay.length ? (
+        <MoviesCardList
+          cardList={moviesToDisplay.slice(0, displayCardLength)}
+          showAddButton={true}
+          grey={true}
+          onDeleteClick={handleDelete}
+          onSaveClick={handleSave}
+          onClickMore={handleMoreClick}
+          showMoreButton={moviesToDisplay.length > displayCardLength}
+        />
+      ) : (
+        <div>Ничего не найдено</div>
+      )}
     </>
   );
 }
