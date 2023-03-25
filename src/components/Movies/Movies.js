@@ -21,7 +21,6 @@ function Movies(props) {
   const [pageLength, setPageLength] = useState(0);
   const [firstPageLenght, setFirstPageLenght] = useState(0);
   const [currentPageNumber, setCurrentPageNumber] = useState(0);
- 
 
   function handleSearchSubmit(e) {
     e.preventDefault();
@@ -47,18 +46,16 @@ function Movies(props) {
         filteredMovies.forEach((element) => {
           newMoviesObject[element.id] = element;
         });
-
-        console.log("filteredMovies", filteredMovies);
         api
           .getSavedMovies()
           .then((data) => {
-              console.log('data', data)
-              data.data.forEach((element) => {
-                const movie = newMoviesObject[element.movieId];
-                if (movie) {
-                  newMoviesObject[element.movieId].isSaved = true;
-                }
-              });
+            console.log("data", data);
+            data.data.forEach((element) => {
+              const movie = newMoviesObject[element.movieId];
+              if (movie) {
+                newMoviesObject[element.movieId].isSaved = true;
+              }
+            });
             setSavedMovies(data);
             setMoviesObj(newMoviesObject);
             localStorage.setItem("moviesObj", JSON.stringify(newMoviesObject));
@@ -117,29 +114,26 @@ function Movies(props) {
   React.useLayoutEffect(() => {
     function updateSize() {
       if (window.innerWidth <= 480) {
-        setPageLength(2)
-        setFirstPageLenght(5)
-      }
-      else if (window.innerWidth <= 899) {
-        setPageLength(2)
-        setFirstPageLenght(8)
-      }
-      else {
-        setPageLength(3)
-        setFirstPageLenght(12)
+        setPageLength(2);
+        setFirstPageLenght(5);
+      } else if (window.innerWidth <= 899) {
+        setPageLength(2);
+        setFirstPageLenght(8);
+      } else {
+        setPageLength(3);
+        setFirstPageLenght(12);
       }
     }
-    window.addEventListener('resize', updateSize);
+    window.addEventListener("resize", updateSize);
     updateSize();
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-
   function handleMoreClick() {
-    setCurrentPageNumber(currentPageNumber + 1)
+    setCurrentPageNumber(currentPageNumber + 1);
   }
 
-const displayCardLength = firstPageLenght +currentPageNumber * pageLength;
+  const displayCardLength = firstPageLenght + currentPageNumber * pageLength;
 
   return (
     <>

@@ -33,6 +33,9 @@ function App() {
 
   function signOut() {
     localStorage.removeItem("jwt");
+    localStorage.removeItem("moviesObj");
+    localStorage.removeItem("searchStr");
+    localStorage.removeItem("onlyShorts");
     api.removeToken();
     setLoggedIn(false);
     window.location.replace("/");
