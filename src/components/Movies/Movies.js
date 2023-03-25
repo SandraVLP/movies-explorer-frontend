@@ -155,7 +155,7 @@ function Movies(props) {
         </div>
       )}
 
-      {moviesToDisplay.length ? (
+      {moviesToDisplay.length  ? (
         <MoviesCardList
           cardList={moviesToDisplay.slice(0, displayCardLength)}
           showAddButton={true}
@@ -165,7 +165,7 @@ function Movies(props) {
           onClickMore={handleMoreClick}
           showMoreButton={moviesToDisplay.length > displayCardLength}
         />
-      ) : (
+      ) : (searchStr.length &&
         <div>Ничего не найдено</div>
       )}
     </>
