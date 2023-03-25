@@ -94,7 +94,7 @@ function App() {
         if (res) {
 
           setErrorMessage(null);
-          window.location.replace("/signin");
+          window.location.replace("/");
         }
       })
       .catch((err) => {
