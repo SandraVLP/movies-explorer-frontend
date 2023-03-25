@@ -96,9 +96,7 @@ function App() {
       .register(password, email, name)
       .then((res) => {
         if (res) {
-
-          setErrorMessage(null);
-          window.location.replace("/");
+          handleLogin(email, password)
         }
       })
       .catch((err) => {
