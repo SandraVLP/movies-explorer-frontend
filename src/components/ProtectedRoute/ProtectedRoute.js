@@ -5,7 +5,7 @@ const ProtectedRoute = (props) => {
   if (!props.isLoaded) {
     return <></>;
   }
-  return (props.hasAccess ? <>{props.children}</> : <Navigate to="/signup" />)
+  return (props.hasAccess ? <>{props.children}</> : <Navigate to="/" />)
 }
 
 export default ProtectedRoute;
