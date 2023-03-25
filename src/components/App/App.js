@@ -35,7 +35,7 @@ function App() {
     localStorage.removeItem("jwt");
     api.removeToken();
     setLoggedIn(false);
-    window.location.replace("/signin");
+    window.location.replace("/");
   }
 
   const handleTokenCheck = () => {
