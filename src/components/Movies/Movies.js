@@ -21,6 +21,7 @@ function Movies(props) {
   const [pageLength, setPageLength] = useState(0);
   const [firstPageLenght, setFirstPageLenght] = useState(0);
   const [currentPageNumber, setCurrentPageNumber] = useState(0);
+  const [searchComplete, setSearchComplete] = useState(!!searchStr.length);
 
   function handleSearchSubmit(e) {
     e.preventDefault();
@@ -58,6 +59,7 @@ function Movies(props) {
             });
             setSavedMovies(data);
             setMoviesObj(newMoviesObject);
+            setSearchComplete(true);
             localStorage.setItem("moviesObj", JSON.stringify(newMoviesObject));
             localStorage.setItem("searchStr", searchStr);
           })
@@ -165,7 +167,7 @@ function Movies(props) {
           onClickMore={handleMoreClick}
           showMoreButton={moviesToDisplay.length > displayCardLength}
         />
-      ) : (searchStr.length &&
+      ) : (searchComplete &&
         <div>Ничего не найдено</div>
       )}
     </>

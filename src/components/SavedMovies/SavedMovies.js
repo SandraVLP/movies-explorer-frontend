@@ -13,6 +13,7 @@ function SavedMovies(props) {
   const [error, setError] = useState(false);
   const [onlyShorts, setOnlyShorts] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [searchComplete, setSearchComplete] = useState(!!searchStr.length);
   const currentUser = React.useContext(CurrentUserContext);
  
   useEffect(() => {
@@ -50,6 +51,7 @@ function SavedMovies(props) {
         });
 
         setMoviesList(filteredMovies);
+        setSearchComplete(true);
   }
 
   function handleDelete(data) {
@@ -101,7 +103,7 @@ function SavedMovies(props) {
           showAddButton={false}
           onDeleteClick={handleDelete}
         />
-      ) : (searchStr.length &&
+      ) : (searchComplete &&
         <div>Ничего не найдено</div>
       )}
     </>

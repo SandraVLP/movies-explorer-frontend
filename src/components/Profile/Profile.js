@@ -9,11 +9,11 @@ function Profile(props) {
 
   const { values, setValues, handleChange, errors, isValid, } = useFormWithValidation();
   React.useEffect(() => {
-    setValues({name: currentUser.name, email: currentUser.email})
+    setValues({name: currentUser?.name, email: currentUser?.email})
   }, [currentUser, setValues]);
 
   React.useEffect(() => {
-    setSubmitAllowed(values.name !== currentUser.name || values.email !== currentUser.email)
+    setSubmitAllowed(values.name !== currentUser?.name || values.email !== currentUser?.email)
   },[values, setSubmitAllowed, currentUser])
   
   function handleSubmit(e) {
@@ -26,7 +26,7 @@ values
 
   return (
     <div className="profile">
-      <h1 className="profile__title">Привет, {currentUser.name}!</h1>
+      <h1 className="profile__title">Привет, {currentUser?.name}!</h1>
       <form className="profile__form" onSubmit={handleSubmit} noValidate>
         <fieldset className="profile__fieldset">
           <label className="profile__label">Имя:</label>

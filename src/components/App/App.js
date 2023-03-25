@@ -12,10 +12,14 @@ import NavigationPopup from "../NavigationPopup/NavigationPopup";
 import * as auth from "../../utils/auth";
 import api from "../../utils/MainApi";
 import React, { useState } from "react";
-import { createBrowserRouter, RouterProvider, Outlet, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  Route,
+} from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
-
 
 function App() {
   const [isNavigationPopupOpen, setNavigationPopupOpen] = useState(false);
@@ -25,7 +29,6 @@ function App() {
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  
 
   function closeAllPopups() {
     setNavigationPopupOpen(false);
@@ -60,10 +63,9 @@ function App() {
           console.log(`Ошибка; ${err}`);
         })
         .finally(() => {
-          setIsLoaded(true)
-        })
-    }
-    else {
+          setIsLoaded(true);
+        });
+    } else {
       setIsLoaded(true);
     }
   };
@@ -96,7 +98,7 @@ function App() {
       .register(password, email, name)
       .then((res) => {
         if (res) {
-          handleLogin(email, password)
+          handleLogin(email, password);
         }
       })
       .catch((err) => {
@@ -109,7 +111,9 @@ function App() {
       .setProfileData(data)
       .then((profile) => {
         setCurrentUser(profile.data);
-        setSuccessText("Профиль успешно отредактирован");
+        setTimeout(() => {
+          setSuccessText("Профиль успешно отредактирован");
+        }, 20);
       })
       .catch((err) => {
         console.log(`Ошибка; ${err}`);
@@ -119,7 +123,6 @@ function App() {
   React.useEffect(() => {
     handleTokenCheck();
   }, []);
-  
 
   React.useEffect(() => {
     if (loggedIn) {
@@ -151,26 +154,55 @@ function App() {
         { index: true, element: <Main /> },
         {
           path: "movies",
-          element: <ProtectedRoute isLoaded={isLoaded} hasAccess={loggedIn}> <Movies /></ProtectedRoute>,
+          element: (
+            <ProtectedRoute isLoaded={isLoaded} hasAccess={loggedIn}>
+              {" "}
+              <Movies />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "profile",
-          element: <ProtectedRoute isLoaded={isLoaded}  hasAccess={loggedIn}> <Profile signOut={signOut} onUpdateUser={handleUpdateUser} successText={successText} /> </ProtectedRoute>,
+          element: (
+            <ProtectedRoute isLoaded={isLoaded} hasAccess={loggedIn}>
+              {" "}
+              <Profile
+                signOut={signOut}
+                onUpdateUser={handleUpdateUser}
+                successText={successText}
+              />{" "}
+            </ProtectedRoute>
+          ),
         },
         {
           path: "signup",
-          element: <Register onRegister={handleRegister} />,
+          element: (
+            <ProtectedRoute isLoaded={isLoaded} hasAccess={!loggedIn}>
+              {" "}
+              <Register onRegister={handleRegister} />{" "}
+            </ProtectedRoute>
+          ),
         },
         {
           path: "signin",
-          element: <Login onLogin={handleLogin} />,
+          element: (
+            <ProtectedRoute isLoaded={isLoaded} hasAccess={!loggedIn}>
+              {" "}
+              <Login onLogin={handleLogin} />{" "}
+            </ProtectedRoute>
+          ),
         },
         {
           path: "saved-movies",
-          element: <ProtectedRoute isLoaded={isLoaded}  hasAccess={loggedIn}> <SavedMovies /> </ProtectedRoute>,
+          element: (
+            <ProtectedRoute isLoaded={isLoaded} hasAccess={loggedIn}>
+              {" "}
+              <SavedMovies />{" "}
+            </ProtectedRoute>
+          ),
         },
         {
-          path: "404",
+          path: "*",
           element: <NotFound />,
         },
       ],
@@ -179,8 +211,8 @@ function App() {
 
   return (
     <div className="App">
-       <CurrentUserContext.Provider value={currentUser}>
-      <RouterProvider router={router} />
+      <CurrentUserContext.Provider value={currentUser}>
+        <RouterProvider router={router} />
       </CurrentUserContext.Provider>
     </div>
   );
