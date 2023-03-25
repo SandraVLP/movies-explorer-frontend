@@ -57,6 +57,7 @@ values
           
         </fieldset>
         <span className="profile__errors">{errors.email}</span>
+        <span className="profile__success">{props.successText}</span>
         <button className="profile__button profile__edit" type="submit" disabled={!submitAllowed || !isValid}>Редактировать</button>
         <button className="profile__button profile__exit" onClick={props.signOut}>
           Выйти из аккаунта

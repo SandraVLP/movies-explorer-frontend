@@ -21,6 +21,7 @@ function App() {
   const [isNavigationPopupOpen, setNavigationPopupOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [successText, setSuccessText] = useState("");
   const [email, setEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -107,6 +108,7 @@ function App() {
       .setProfileData(data)
       .then((profile) => {
         setCurrentUser(profile.data);
+        setSuccessText("Успешное редактирование профиля");
       })
       .catch((err) => {
         console.log(`Ошибка; ${err}`);
@@ -152,7 +154,7 @@ function App() {
         },
         {
           path: "profile",
-          element: <ProtectedRoute isLoaded={isLoaded}  hasAccess={loggedIn}> <Profile signOut={signOut} onUpdateUser={handleUpdateUser} /> </ProtectedRoute>,
+          element: <ProtectedRoute isLoaded={isLoaded}  hasAccess={loggedIn}> <Profile signOut={signOut} onUpdateUser={handleUpdateUser} successText={successText} /> </ProtectedRoute>,
         },
         {
           path: "signup",
