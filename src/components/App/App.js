@@ -109,7 +109,7 @@ function App() {
       .setProfileData(data)
       .then((profile) => {
         setCurrentUser(profile.data);
-        setSuccessText("Успешное редактирование профиля");
+        setSuccessText("Профиль успешно отредактирован");
       })
       .catch((err) => {
         console.log(`Ошибка; ${err}`);
