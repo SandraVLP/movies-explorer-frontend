@@ -101,7 +101,7 @@ function SavedMovies(props) {
           showAddButton={false}
           onDeleteClick={handleDelete}
         />
-      ) : (
+      ) : (searchStr.length &&
         <div>Ничего не найдено</div>
       )}
     </>
