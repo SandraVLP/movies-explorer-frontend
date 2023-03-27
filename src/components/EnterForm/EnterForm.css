@@ -52,7 +52,11 @@
   padding-bottom: 15px;
 }
 
-.enter__button:hover {
+.enter__button_inactive {
+  background-color: #859af4;
+} 
+
+.enter__button:not(.enter__button_inactive):hover {
   opacity: 0.8;
 }
 

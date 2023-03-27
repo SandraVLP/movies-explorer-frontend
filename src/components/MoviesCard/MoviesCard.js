@@ -1,23 +1,27 @@
-import film1 from "../../images/film1.png";
-import React, { useState } from 'react';
-import { isFocusable } from "@testing-library/user-event/dist/utils";
+import React from 'react';
 
 function MoviesCard(props) {
-    const [isSaved, setisSaved] = useState(props.data.isSaved);
 
+    function getTimeFromMins(mins) {
+        let hours = Math.trunc(mins/60);
+        let minutes = mins % 60;
+        return hours + 'ч ' + minutes + 'м';
+    };
+const imgUrl = props.data.image.url ? `https://api.nomoreparties.co/${props.data.image.url}` : props.data.image;
 
     return (
         <div className="card">
-            <img className="card__image" src={props.data.src}></img>
+            <a target="_blank" href={props.data.trailerLink}><img className="card__image" src={imgUrl} alt="Фильм"></img> </a>
             {props.showAddButton ? 
-            (isSaved 
-            ? <button className="card__save" type="button" onClick={() => setisSaved(false)} >Сохранить</button>
-            : <button className="card__save-active" type="button" onClick={() => setisSaved(true)}></button>)
+            (props.data.isSaved
+            ? <button className="card__save-active" type="button" onClick={() =>  props.onDeleteClick(props.data)}></button>
+            : 
+            <button className="card__save" type="button" onClick={() => props.onSaveClick(props.data)} >Сохранить</button>)
 
-            : <button className="card__remove" type="button"></button> }
+            : <button className="card__remove" type="button" onClick={() => props.onDeleteClick(props.data)}></button> }
             <div className="card__description">
-                <p className="card__name">{props.data.cardName}</p>
-                <p className="card__duration">{props.data.cardDuration}</p>
+                <p className="card__name">{props.data.nameRU}</p>
+                <p className="card__duration">{getTimeFromMins(props.data.duration)}</p>
             </div>
        </div>
 

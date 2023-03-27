@@ -7,63 +7,12 @@ class EnterForm extends React.Component {
     return (
       <>
         <div className="enter">
-          <form className="enter__form">
+          <form className="enter__form" onSubmit={this.props.onSubmit} noValidate>
             {children}
-            {/* <InputForm htmlFor={'name'}               
-                placeholder={"Имя"}
-                id={"name"}
-                name={"name"}
-                type={"name" }/> */}
-            {/* <div className="enter__block">  
-            <label className="enter__label" htmlFor="name">Имя:</label>
-              <input
-                className="enter__input"
-                placeholder="Имя"
-                id="name"
-                name="name"
-                type="name"
-                // value={this.state.name}
-                // onChange={this.handleChange}
-              />
-              </div> */}
-            {/* <InputForm htmlFor={'email'}               
-                placeholder={"Email"}
-                id={"email"}
-                name={"email"}
-                type={"email" }/> */}
-            {/* <div className="enter__block">  
-              <label className="enter__label" htmlFor="email">Email:</label>
-              <input
-                className="enter__input"
-                placeholder="Email"
-                id="email"
-                name="email"
-                type="email"
-                // value={this.state.email}
-                // onChange={this.handleChange}
-              />
-                </div> */}
-            {/* <InputForm htmlFor={'password'}               
-                placeholder={"Пароль"}
-                id={"password"}
-                name={"password"}
-                type={"password" }/> */}
-            {/* <div className="enter__block">  
-              <label className="enter__label" htmlFor="password">Пароль:</label>
-              <input
-                className="enter__input"
-                placeholder="Пароль"
-                id="password"
-                name="password"
-                type="password"
-                // value={this.state.password}
-                // onChange={this.handleChange}
-              />
-                </div> */}
             <button
               type="submit"
-              //   onSubmit={this.handleSubmit}
-              className="enter__button"
+              className={`enter__button ${this.props.disabled ? 'enter__button_inactive' : ''}`}
+              disabled={this.props.disabled}
             >
               {this.props.buttonText}
             </button>

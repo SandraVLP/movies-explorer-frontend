@@ -13,10 +13,10 @@ function FormInput(props) {
         minLength={props.minLength}
         maxLength={props.maxLength}
         required
-        // value={this.state.name}
-        // onChange={this.handleChange}
+        value={props.value || ""}
+        onChange={props.onChange}
       />
-      <span id={props.span} className="enter__span"></span>
+      <span id={props.span} className="enter__span">{props.spanText}</span>
     </div>
   );
 }

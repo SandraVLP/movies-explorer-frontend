@@ -3,8 +3,11 @@ import logo1 from "../../images/logo1.svg";
 import React from "react";
 import { Link, Routes, Route } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function MainHeader(props) {
+
+
   return (
     <div className="header__container">
       <Link to="/"><img className="header__logo" src={logo1} alt="Логотип" /> </Link>
@@ -21,12 +24,16 @@ function MainHeader(props) {
 }
 
 function Header(props) {
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <header className="header">
       <Routes>
         <Route
           path="*"
-          element={
+          element={currentUser ?
+<MainHeader openNavigation={props.openNavigation} />
+:
+
             <div className="header__container">
               <img className="header__logo" src={logo} alt="Логотип" />
               <div className="header__navigation-main">
@@ -41,6 +48,7 @@ function Header(props) {
         />
         {["/movies", "/saved-movies", "/profile"].map((path) => (
           <Route
+            key={path}
             path={path}
             element={<MainHeader openNavigation={props.openNavigation} />}
           />
