@@ -5,7 +5,7 @@ import useFormWithValidation from "../Validation/Validation";
 
 function Login (props) {
 
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, handleEmailChange } = useFormWithValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,7 +25,7 @@ function Login (props) {
         >
           <FormInput
             value={values.email}
-            onChange={handleChange}
+            onChange={handleEmailChange}
             spanText={errors.email}
             htmlFor={"email"}
             inputTitle={"Email:"}

@@ -4,7 +4,7 @@ import FormInput from "../FormInput/FormInput";
 import useFormWithValidation from "../Validation/Validation";
 
 function Register(props) {
-  const { values, handleChange, errors, isValid } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, handleEmailChange } = useFormWithValidation();
 
  
   function handleSubmit (e) {
@@ -39,7 +39,7 @@ function Register(props) {
           />
           <FormInput
             value={values.email}
-            onChange={handleChange}
+            onChange={handleEmailChange}
             spanText={errors.email}
             htmlFor={"email"}
             inputTitle={"Email:"}

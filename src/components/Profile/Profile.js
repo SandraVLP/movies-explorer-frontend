@@ -7,7 +7,7 @@ function Profile(props) {
   const currentUser = React.useContext(CurrentUserContext);
   const [submitAllowed, setSubmitAllowed] = useState(false);
 
-  const { values, setValues, handleChange, errors, isValid, } = useFormWithValidation();
+  const { values, setValues, handleChange, errors, isValid, handleEmailChange } = useFormWithValidation();
   React.useEffect(() => {
     setValues({name: currentUser?.name, email: currentUser?.email})
   }, [currentUser, setValues]);
@@ -51,7 +51,7 @@ values
             name="email"
             type="email"
             value={values.email || ""}
-            onChange={handleChange}
+            onChange={handleEmailChange}
             required
           ></input>
           

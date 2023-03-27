@@ -61,6 +61,13 @@ function SavedMovies(props) {
         const newFullMoviesList = fullMoviesList.filter((c) => {
           return c._id !== data._id;
         });
+        let localStorageMovies = JSON.parse(localStorage.getItem("moviesObj"));
+        console.log("localStorageMovies", localStorageMovies)
+        console.log(data);
+        if (localStorageMovies) {
+          localStorageMovies[data.movieId].isSaved = false;
+          localStorage.setItem("moviesObj", JSON.stringify(localStorageMovies));
+        }
         setfullMoviesList(newFullMoviesList);
         const newMoviesList = moviesList.filter((c) => {
           return c._id !== data._id;

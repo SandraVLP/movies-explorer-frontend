@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+const isEmail = require('validator/lib/isEmail');
 
 //хук управления формой и валидации формы
 function useFormWithValidation() {
@@ -15,6 +16,22 @@ function useFormWithValidation() {
     setIsValid(target.closest("form").checkValidity());
   };
 
+  const handleEmailChange = (event) => {
+    const target = event.target;
+    const name = target.name;
+    const value = target.value;
+    console.log(isEmail(value));
+    if (!isEmail(value)) {
+      target.setCustomValidity("Некорректный Email");
+    }
+    else {
+      target.setCustomValidity("");
+    }
+    setValues({...values, [name]: value});
+    setErrors({...errors, [name]: target.validationMessage });
+    setIsValid(target.closest("form").checkValidity());
+  };
+
   const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false) => {
       setValues(newValues);
@@ -24,7 +41,7 @@ function useFormWithValidation() {
     [setValues, setErrors, setIsValid]
   );
 
-  return { values, setValues, handleChange, errors, isValid, resetForm };
+  return { values, setValues, handleChange, errors, isValid, resetForm, handleEmailChange };
 }
 
 
